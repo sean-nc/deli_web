@@ -2,14 +2,17 @@
 <html>
   <head>
     <title>WebApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/meta' %>
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= render 'admin/top_bar' %>
+      <% if request.path_info.include?('admin') %>
+          <%= render 'admin/dashboard' %>
+      <% end %>
+    <% end %>
+    <%= render 'layouts/alert' %>
     <%= yield %>
   </body>
 </html>
