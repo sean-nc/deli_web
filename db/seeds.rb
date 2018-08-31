@@ -93,5 +93,14 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
       cost: cost,
       price: price)
     cheese.image.attach(io: File.open(picture), filename: "pic.jpg")
+
+    # Create Order
+    5.times do |z|
+      current = rand(1..20)
+      ordered = rand(1..10)
+      CheeseOrder.create(cheese_id: cheese.id,
+                         current_units: current,
+                         ordered_units: ordered)
+    end
   end
 end
