@@ -1,0 +1,9 @@
+<br/>
+<%= link_to "New", url %>
+<br/>
+<% objects.each do |object| %>
+  <%= object.name %>
+  <%= link_to "Delete", object, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br/>
+  <br/>
+<% end %>

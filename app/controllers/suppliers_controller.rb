@@ -23,7 +23,7 @@ class SuppliersController < ApplicationController
       redirect_to @supplier
       flash[:notice] = 'Supplier was successfully created.'
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -32,7 +32,7 @@ class SuppliersController < ApplicationController
       redirect_to @supplier
       flash[:notice] = 'Supplier was successfully updated.'
     else
-      render 'edit'
+      render :edit
     end
   end
 

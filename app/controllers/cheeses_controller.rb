@@ -23,7 +23,7 @@ class CheesesController < ApplicationController
       redirect_to @cheese
       flash[:notice] = 'Cheese was successfully created.'
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -32,7 +32,7 @@ class CheesesController < ApplicationController
       redirect_to @cheese
       flash[:notice] = 'Cheese was successfully updated.'
     else
-      render 'edit'
+      render :edit
     end
   end
 
