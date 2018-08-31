@@ -1,0 +1,52 @@
+<%= form_with(model: cheese, local: true) do |form| %>
+  <% if cheese.errors.any? %>
+    <%= render 'shared/form_errors', object: cheese %>
+  <% end %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br/><br/>
+
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+  <br/><br/>
+
+  <%= form.label :region %>
+  <%= form.select :region, options_for_select(Region.all_names) %>
+  <br/><br/>
+
+  <%= form.label :texture %>
+  <%= form.select :texture, options_for_select(Texture.all_names) %>
+  <br/><br/>
+
+  <%= form.label :milk %>
+  <%= form.select :milk, options_for_select(Milk.all_names) %>
+  <br/><br/>
+
+  <%= form.label :wine_pairing %>
+  <%= form.select :wine_pairing, options_for_select(Wine.all_names) %>
+  <br/><br/>
+
+  <%= form.label :strength %>
+  <%= form.select :strength, options_for_select(Strength.all_names) %>
+  <br/><br/>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+  <br/><br/>
+
+  <%= form.label :supplier %>
+  <%= form.select :supplier_id, options_for_select(Supplier.all_names) %>
+  <br/><br/>
+
+  <%= form.label :cost %>
+  <%= form.number_field :cost, step: :any %>
+  <br/><br/>
+
+  <%= form.label :price %>
+  <%= form.number_field :price, step: :any %>
+  <br/><br/>
+
+  <%= form.submit %>
+  <br/><br/>
+<% end %>

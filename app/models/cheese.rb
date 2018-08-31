@@ -11,4 +11,5 @@ class Cheese < ApplicationRecord
   validates :texture, presence: true
   validates :strength, presence: true
   validates :slug, uniqueness: true
+  validates :supplier_id, presence: true
 end
