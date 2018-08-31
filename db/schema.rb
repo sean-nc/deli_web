@@ -10,10 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_30_201342) do
+ActiveRecord::Schema.define(version: 2018_08_31_002149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cheese_orders", force: :cascade do |t|
+    t.integer "cheese_id"
+    t.integer "current_units"
+    t.integer "ordered_units"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cheese_id"], name: "index_cheese_orders_on_cheese_id"
+  end
+
+  create_table "cheeses", force: :cascade do |t|
+    t.string "name"
+    t.text "region"
+    t.string "milk"
+    t.string "texture"
+    t.string "strength"
+    t.string "wine_pairing"
+    t.text "description"
+    t.integer "supplier_id"
+    t.float "cost"
+    t.float "price"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supplier_id"], name: "index_cheeses_on_supplier_id"
+  end
+
+  create_table "milks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "strengths", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string "company_name"
+    t.string "name"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "textures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,6 +84,12 @@ ActiveRecord::Schema.define(version: 2018_08_30_201342) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "wines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
