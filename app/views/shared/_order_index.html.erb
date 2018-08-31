@@ -1,0 +1,9 @@
+<br/>
+<%= link_to "New", url %>
+<br/>
+<% objects.each do |object| %>
+  <%= object.created_at %> || <%= object.current_units %>: current units || <%= object.ordered_units %>: ordered units
+  || <%= link_to "Delete", object, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br/>
+  <br/>
+<% end %>
