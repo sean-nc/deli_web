@@ -66,3 +66,6 @@ gem 'devise'
 
 # Slug generator
 gem 'friendly_id', '~> 5.2.0'
+
+# Faker
+gem 'faker'
