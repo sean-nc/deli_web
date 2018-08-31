@@ -55,6 +55,8 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
                        email: email)
 
   10.times do |x|
+
+    # Set Cheese
     num = rand(0..2)
     texture = textures[num]
     picture = pic_array[num]
@@ -79,6 +81,7 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
 
     name = Faker::MostInterestingManInTheWorld.unique.quote
 
+    # Create Cheese
     cheese = Cheese.create!(
       name: name,
       texture: texture,
