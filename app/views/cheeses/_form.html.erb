@@ -12,23 +12,23 @@
   <br/><br/>
 
   <%= form.label :region %>
-  <%= form.select :region, options_for_select(Region.all_names) %>
+  <%= form.collection_select :region, Region.all, :name, :name %>
   <br/><br/>
 
   <%= form.label :texture %>
-  <%= form.select :texture, options_for_select(Texture.all_names) %>
+  <%= form.collection_select :texture, Texture.all, :name, :name %>
   <br/><br/>
 
   <%= form.label :milk %>
-  <%= form.select :milk, options_for_select(Milk.all_names) %>
+  <%= form.collection_select :milk, Milk.all, :name, :name %>
   <br/><br/>
 
   <%= form.label :wine_pairing %>
-  <%= form.select :wine_pairing, options_for_select(Wine.all_names) %>
+  <%= form.collection_select :wine_pairing, Wine.all, :name, :name %>
   <br/><br/>
 
   <%= form.label :strength %>
-  <%= form.select :strength, options_for_select(Strength.all_names) %>
+  <%= form.collection_select :strength, Strength.all, :name, :name %>
   <br/><br/>
 
   <%= form.label :description %>
@@ -36,7 +36,7 @@
   <br/><br/>
 
   <%= form.label :supplier %>
-  <%= form.select :supplier_id, options_for_select(Supplier.all_names) %>
+  <%= form.collection_select :supplier_id, Supplier.all, :id, :name %>
   <br/><br/>
 
   <%= form.label :cost %>
