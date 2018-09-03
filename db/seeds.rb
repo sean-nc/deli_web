@@ -31,15 +31,15 @@ regions = Region.all.map { |x| x.name }
 milks = Milk.all.map { |x| x.name }
 textures = Texture.all.map { |x| x.name }
 strengths = Strength.all.map { |x| x.name }
-costs = ["1.00/kg", "2.00/kg", "3.00/kg", "4.00/kg", "5.00/kg"]
-prices = ["5.50/kg", "6.50/kg", "7.50/kg", "8.50/kg", "9.50/kg"]
+costs = [1.00, 2.00, 3.00, 4.00, 5.00]
+prices = [5.50, 6.50, 7.50, 8.50, 9.50]
 
 
 # Images
 file_path = Rails.root + "../mock-data/"
 soft_cheese = file_path + "soft-cheese.jpg"
 semi_soft_cheese = file_path + "semi-soft-cheese.jpg"
-hard_cheese = file_path + "hard-cheese.jpeg"
+hard_cheese = file_path + "hard-cheese.jpg"
 pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
 
 # Create Supplier and Cheeses

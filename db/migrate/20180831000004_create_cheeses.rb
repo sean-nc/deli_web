@@ -9,8 +9,8 @@ class CreateCheeses < ActiveRecord::Migration[5.2]
       t.string :wine_pairing
       t.text :description
       t.integer :supplier_id
-      t.string :cost
-      t.string :price
+      t.float :cost
+      t.float :price
       t.string :slug
 
       t.timestamps

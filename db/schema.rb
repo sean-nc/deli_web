@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2018_08_31_010652) do
     t.string "wine_pairing"
     t.text "description"
     t.integer "supplier_id"
-    t.string "cost"
-    t.string "price"
+    t.float "cost"
+    t.float "price"
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
