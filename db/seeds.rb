@@ -102,10 +102,15 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
     # Create Order
     5.times do |z|
       current = rand(1..20)
-      ordered = rand(1..10)
+      units_per_case = rand(1..10)
+      cases_ordered = rand(1..5)
+      price = cost * cases_ordered
       CheeseOrder.create(cheese_id: cheese.id,
+                         supplier_id: supplier.id,
                          current_units: current,
-                         ordered_units: ordered)
+                         cases_ordered: cases_ordered,
+                         case_price: price,
+                         units_per_case: units_per_case)
     end
   end
 end

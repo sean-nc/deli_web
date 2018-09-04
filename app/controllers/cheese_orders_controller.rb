@@ -7,14 +7,18 @@ class CheeseOrdersController < ApplicationController
   end
 
   def new
-    cheese = Cheese.friendly.find(params[:id])
-    @order = cheese.orders.build
+    @cheese = Cheese.friendly.find(params[:id])
+    @last_order = @cheese.orders.first
+    @order = @cheese.orders.build
   end
 
   def create
     cheese = Cheese.friendly.find(params[:id])
     @order = cheese.orders.build(cheese_order_params)
+    @order.case_price = params[:cheese_order][:case_price].to_f.float_to_i
+    cheese.in_stock = (@order.cases_ordered * @order.units_per_case) + @order.current_units
     if @order.save
+      cheese.save
       redirect_to @order.cheese
       flash[:notice] = 'Order was successfully created.'
     else
@@ -31,6 +35,6 @@ class CheeseOrdersController < ApplicationController
 
   private
     def cheese_order_params
-      params.require(:cheese_order).permit(:cheese_id, :current_units, :ordered_units)
+      params.require(:cheese_order).permit(:cheese_id, :supplier_id, :current_units, :cases_ordered, :case_price, :units_per_case, :description)
     end
 end

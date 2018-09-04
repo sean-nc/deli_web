@@ -12,8 +12,8 @@ class Cheese < ApplicationRecord
   validates :strength, presence: true
   validates :slug, uniqueness: true
   validates :supplier_id, presence: true
-  validates :price, numericality: { only_integer: true }
-  validates :cost, numericality: { only_integer: true }
-  validates :in_stock, numericality: { only_integer: true }
-  validates :stock_goal, numericality: { only_integer: true }
+  validates :price, presence: true
+  validates :cost, presence: true
+  validates :in_stock, presence: true
+  validates :stock_goal, presence: true
 end

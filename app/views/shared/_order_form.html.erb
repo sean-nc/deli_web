@@ -3,14 +3,33 @@
     <%= render 'shared/form_errors', object: object %>
   <% end %>
 
-  <%= form.label :current_units %>
-  <%= form.number_field :current_units %>
+  <%= form.label :supplier %>
+  <%= form.collection_select :supplier_id, Supplier.all, :id, :name, selected: @cheese.supplier.id %>
   <br/><br/>
 
-  <%= form.label :ordered_units %>
-  <%= form.number_field :ordered_units %>
+  <%= form.label :in_stock %>
+  <%= form.number_field :current_units, step: 1, value: @cheese.in_stock %>
+  <br/><br/>
+
+  <%= form.label :cases_ordered %>
+  <%= form.number_field :cases_ordered, step: 1 %>
+  <br/><br/>
+
+  <%= form.label :case_price %>
+  <%= form.number_field :case_price, step: 0.01, value: @last_order.case_price.integer_to_f %>
+  <br/><br/>
+
+  <%= form.label :units_per_case %>
+  <%= form.number_field :units_per_case, step: 1, value: @last_order.units_per_case %>
+  <br/><br/>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
   <br/><br/>
 
   <%= form.submit %>
   <br/><br/>
+
+  <%= @last_order.case_price %>
+
 <% end %>

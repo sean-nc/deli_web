@@ -38,11 +38,16 @@ ActiveRecord::Schema.define(version: 2018_08_31_010652) do
 
   create_table "cheese_orders", force: :cascade do |t|
     t.integer "cheese_id"
+    t.integer "supplier_id"
     t.integer "current_units"
-    t.integer "ordered_units"
+    t.integer "cases_ordered"
+    t.integer "case_price"
+    t.integer "units_per_case"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cheese_id"], name: "index_cheese_orders_on_cheese_id"
+    t.index ["supplier_id"], name: "index_cheese_orders_on_supplier_id"
   end
 
   create_table "cheeses", force: :cascade do |t|
