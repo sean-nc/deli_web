@@ -40,11 +40,19 @@
   <br/><br/>
 
   <%= form.label :cost %>
-  <%= form.text_field :cost %>
+  <%= form.number_field :cost, step: 0.01 %>
   <br/><br/>
 
   <%= form.label :price %>
-  <%= form.text_field :price %>
+  <%= form.number_field :price, step: 0.01 %>
+  <br/><br/>
+
+  <%= form.label :in_stock %>
+  <%= form.number_field :in_stock, step: 1 %>
+  <br/><br/>
+
+  <%= form.label :stock_goal %>
+  <%= form.number_field :stock_goal, step: 1 %>
   <br/><br/>
 
   <%= form.submit %>

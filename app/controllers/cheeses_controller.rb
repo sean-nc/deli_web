@@ -18,7 +18,8 @@ class CheesesController < ApplicationController
 
   def create
     @cheese = Cheese.new(cheese_params)
-
+    @cheese.price = @cheese.price.float_to_i
+    @cheese.cost = @cheese.price.float_to_i
     if @cheese.save
       redirect_to @cheese
       flash[:notice] = 'Cheese was successfully created.'
@@ -49,6 +50,6 @@ class CheesesController < ApplicationController
 
     def cheese_params
       params.require(:cheese).permit(:name, :region, :texture, :milk, :wine_pairing, :strength,
-                                     :description, :image, :supplier_id, :cost, :price)
+                                     :description, :image, :supplier_id, :cost, :price, :in_stock, :stock_goal)
     end
 end

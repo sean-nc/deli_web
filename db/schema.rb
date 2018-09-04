@@ -54,9 +54,11 @@ ActiveRecord::Schema.define(version: 2018_08_31_010652) do
     t.string "wine_pairing"
     t.text "description"
     t.integer "supplier_id"
-    t.float "cost"
-    t.float "price"
+    t.integer "cost"
+    t.integer "price"
     t.string "slug"
+    t.integer "in_stock"
+    t.integer "stock_goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["supplier_id"], name: "index_cheeses_on_supplier_id"

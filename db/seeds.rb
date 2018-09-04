@@ -31,8 +31,8 @@ regions = Region.all.map { |x| x.name }
 milks = Milk.all.map { |x| x.name }
 textures = Texture.all.map { |x| x.name }
 strengths = Strength.all.map { |x| x.name }
-costs = [1.00, 2.00, 3.00, 4.00, 5.00]
-prices = [5.50, 6.50, 7.50, 8.50, 9.50]
+costs = [100, 200, 300, 400, 500]
+prices = [550, 650, 750, 850, 950]
 
 
 # Images
@@ -79,6 +79,9 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
     num = rand(0..4)
     price = prices[num]
 
+    stock_goal = rand(8..20)
+    in_stock = rand(0..12) 
+
     name = Faker::MostInterestingManInTheWorld.unique.quote
 
     # Create Cheese
@@ -91,7 +94,9 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
       wine_pairing: wine,
       supplier_id: supplier.id,
       cost: cost,
-      price: price)
+      price: price,
+      in_stock: in_stock,
+      stock_goal: stock_goal)
     cheese.image.attach(io: File.open(picture), filename: "pic.jpg")
 
     # Create Order
