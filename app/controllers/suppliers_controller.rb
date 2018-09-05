@@ -3,7 +3,7 @@ class SuppliersController < ApplicationController
   before_action :set_supplier, only: [:show, :edit, :update, :destroy]
 
   def index
-    @suppliers = supplier.all
+    @suppliers = Supplier.all
   end
 
   def show
