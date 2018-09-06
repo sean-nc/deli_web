@@ -3,4 +3,10 @@ class AdminController < ApplicationController
 
   def index
   end
+
+  def categories
+  end
+
+  def orders
+  end
 end

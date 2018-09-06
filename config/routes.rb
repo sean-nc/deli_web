@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   root                    'admin#index'
   devise_for              :users,                 controllers: { registrations: "registrations" }
-  scope '/admin' do
+  
+  scope :admin, controller: :admin do
+    get 'categories'
+    get 'orders'
+  end
+
+  scope :admin do
     resources             :cheeses do
       member do
         resources         :cheese_orders,         only: [:index, :new, :create, :destroy]

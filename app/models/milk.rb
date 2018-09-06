@@ -1,3 +1,2 @@
-class Milk < ApplicationRecord
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+class Milk < Category
 end

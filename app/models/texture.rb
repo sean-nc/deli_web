@@ -1,3 +1,2 @@
-class Texture < ApplicationRecord
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+class Texture < Category
 end
