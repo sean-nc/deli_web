@@ -2,7 +2,7 @@
 <%= link_to "New", url %>
 <br/>
 <% objects.each do |object| %>
-  <%= object.created_at %> || <%= object.current_units %>: current units || <%= object.ordered_units %>: ordered units
+  <%= object.created_at %> || <%= object.current_units %>: current units || <%= object.units_per_case * object.cases_ordered %>: units ordered (<%= object.cases_ordered %> cases)
   || <%= link_to "Delete", object, method: :delete, data: { confirm: 'Are you sure?' } %>
   <br/>
   <br/>

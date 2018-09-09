@@ -4,11 +4,11 @@
   <% end %>
 
   <%= form.label :supplier %>
-  <%= form.collection_select :supplier_id, Supplier.all, :id, :name, selected: @cheese.supplier.id %>
+  <%= form.collection_select :supplier_id, Supplier.all, :id, :name, selected: food.supplier.id %>
   <br/><br/>
 
   <%= form.label :in_stock %>
-  <%= form.number_field :current_units, step: 1, value: @cheese.in_stock %>
+  <%= form.number_field :current_units, step: 1, value: food.in_stock %>
   <br/><br/>
 
   <%= form.label :cases_ordered %>
@@ -28,6 +28,6 @@
   <br/><br/>
 
   <%= form.submit %>
-  <br/><br/
+  <br/><br/>
 
 <% end %>

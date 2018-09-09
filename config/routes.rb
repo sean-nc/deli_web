@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root                    'admin#index'
+  root                    to: redirect(path: 'admin/index')
   devise_for              :users,                 controllers: { registrations: "registrations" }
   
   scope :admin, controller: :admin do
