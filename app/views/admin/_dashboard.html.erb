@@ -1,6 +1,20 @@
-<%= link_to "Suppliers", suppliers_path %>
-<%= link_to "Orders", orders_path %>
-<%= link_to "Cheeses", cheeses_path %>
-<%= link_to "Categories", categories_path %>
+<nav class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-center">
 
-<br/>
+  <ul class="uk-navbar-nav">
+      <li>
+           <div class="uk-navbar-toggle admin-panel">
+            <span uk-navbar-toggle-icon></span> <span class="uk-margin-left">ADMIN PANEL</span>
+          </div>
+          <div class="uk-navbar-dropdown" uk-drop="boundary: !nav; boundary-align: true; pos: bottom-justify;">
+              <ul class="uk-nav uk-navbar-dropdown-nav admin-panel-center">
+                  <li><%= link_to "SUPPLIERS", suppliers_path %></li>
+                  <li><%= link_to "ORDERS", orders_path %></li>
+                  <li><%= link_to "CHEESES", cheeses_path %></li>
+                  <li><%= link_to "CATEGORIES", categories_path %></li>
+              </ul>
+          </div>
+      </li>
+    </ul>
+  </div>
+</nav>

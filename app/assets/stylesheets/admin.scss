@@ -1,3 +1,39 @@
-// Place all the styles related to the admin controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.top-admin-bar {
+	background-color: black;
+
+	a, a:hover, a:active, a:visited {
+		color: white;
+		text-decoration: none;
+		padding: 0.5rem 1rem;
+		text-transform: uppercase;
+		font-size: 1.4rem;
+	}
+
+	.top-admin-bar-inner {
+		max-width: 80rem;
+		padding: 0.5em 1rem;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.admin-panel {
+	font-size: 1.4rem;
+	cursor: pointer;
+	padding: 2rem 0;
+
+	&:hover {
+		color: grey;
+	}
+}
+
+.admin-panel-center {
+	text-align: center;
+	font-size: 1.4rem;
+
+	li a {
+		padding: 2rem;
+	}
+}

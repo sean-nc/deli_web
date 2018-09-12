@@ -1,5 +1,11 @@
-<%= link_to "Dashboard", index_path %>
-<%= link_to "Settings", edit_user_registration_path %>
-<%= link_to('Logout', destroy_user_session_path, method: :delete) %>  
-
-<br/>
+<div class="top-admin-bar">
+  <nav class="top-admin-bar-inner">
+    <div>
+      <%= link_to "Dashboard", index_path %>
+    </div>
+    <div>
+      <%= link_to "Settings", edit_user_registration_path %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>  
+    </div>
+  </nav>
+</div>
