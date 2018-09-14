@@ -1,5 +1,12 @@
+<%= @supplier.company_name %><br/>
+<%= @supplier.name %><br/>
+<%= @supplier.email %><br/>
+<%= @supplier.phone_number %><br/>
+<br/>
+<br/>
+
+<h2>Cheeses</h2>  
 <% @supplier.cheeses.each do|cheese| %>
-  <div>
-    <%= cheese.name %> | <%= cheese.in_stock %>
-  </div>
+  <%= cheese.name %>
+  <%= link_to "Show", cheese %><br/>
 <% end %>

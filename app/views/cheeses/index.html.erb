@@ -1,1 +1,6 @@
-<%= link_to 'New Cheese', new_cheese_path %>
+<%= link_to 'New Cheese', new_cheese_path %><br/><br/><br/>
+
+<% @cheeses.each do |cheese| %>
+  <%= cheese.name %><br/>
+  <%= link_to "Show", cheese %>
+<% end %>

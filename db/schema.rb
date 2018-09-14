@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_170647) do
     t.string "slug"
     t.integer "in_stock"
     t.integer "stock_goal"
+    t.date "expires_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["supplier_id"], name: "index_cheeses_on_supplier_id"

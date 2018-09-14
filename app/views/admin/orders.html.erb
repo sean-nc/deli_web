@@ -1,0 +1,10 @@
+<% @cheese_orders.each_with_index do |order, index| %>
+  <% if index == 0 %>
+    <h4><%= order.created_at.to_date %></h4>
+  <% elsif order.created_at.to_date != @cheese_orders[index - 1].created_at.to_date %>
+    <h4><%= order.created_at.to_date %></h4>
+  <% end %>
+  <%= order.created_at.to_date %><br/>
+  <%= link_to order.supplier.company_name, order.supplier %> - <%= link_to order.cheese.name, order.cheese %>
+  <br/><br/>
+<% end %>

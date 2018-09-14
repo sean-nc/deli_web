@@ -55,6 +55,9 @@
   <%= form.number_field :stock_goal, step: 1 %>
   <br/><br/>
 
+  <%= form.label :expires_on %>
+  <%= form.date_select :expires_on %>
+
   <%= form.submit %>
   <br/><br/>
 <% end %>

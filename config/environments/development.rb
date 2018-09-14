@@ -1,5 +1,10 @@
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.eager_load_paths += Dir['app/models/*.rb']
+  Rails.application.reloader.to_prepare do 
+    Dir["app/models/*.rb"].each { |file| require_dependency file } 
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

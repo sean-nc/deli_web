@@ -82,6 +82,8 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
     stock_goal = rand(8..20)
     in_stock = rand(0..12) 
 
+    expires_on = Faker::Date.between(2.days.ago, 30.days.from_now) 
+
     name = Faker::MostInterestingManInTheWorld.unique.quote
 
     # Create Cheese
@@ -96,7 +98,8 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
       cost: cost,
       price: price,
       in_stock: in_stock,
-      stock_goal: stock_goal)
+      stock_goal: stock_goal,
+      expires_on: expires_on)
     cheese.image.attach(io: File.open(picture), filename: "pic.jpg")
 
     # Create Order
@@ -105,12 +108,14 @@ pic_array = [soft_cheese, semi_soft_cheese, hard_cheese]
       units_per_case = rand(1..10)
       cases_ordered = rand(1..5)
       price = cost * cases_ordered
+      created_at = Faker::Date.between(30.days.ago, DateTime.now)
       CheeseOrder.create(cheese_id: cheese.id,
                          supplier_id: supplier.id,
                          current_units: current,
                          cases_ordered: cases_ordered,
                          case_price: price,
-                         units_per_case: units_per_case)
+                         units_per_case: units_per_case,
+                         created_at: created_at)
     end
   end
 end

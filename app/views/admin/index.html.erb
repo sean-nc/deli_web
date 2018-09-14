@@ -1,3 +1,9 @@
-<% @orders.each do |order| %>
-	<%= render 'shared/order', order: order %>
+<h2>Expiring Cheeses</h2>
+<% @expiring_cheeses.each do |cheese| %>
+	<%= cheese.name %> - <%= cheese.in_stock %> - <%= cheese.expires_on %><br/>
+<% end %>
+
+<h2>Running Low</h2>
+<% @order_cheeses.each do |cheese| %>
+  <%= cheese.name %> (<%= (cheese.in_stock - cheese.stock_goal) %>) - <%= cheese.in_stock %><br/>
 <% end %>

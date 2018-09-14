@@ -14,6 +14,7 @@ class CreateCheeses < ActiveRecord::Migration[5.2]
       t.string :slug
       t.integer :in_stock
       t.integer :stock_goal
+      t.date :expires_on
 
       t.timestamps
     end
