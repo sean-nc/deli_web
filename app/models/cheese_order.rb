@@ -13,5 +13,6 @@ class CheeseOrder < ApplicationRecord
     self.received = true
     self.cheese.in_stock = (self.cases_ordered * self.units_per_case) + self.cheese.in_stock
     self.cheese.save 
+    self.save
   end
 end

@@ -7,6 +7,12 @@ class SuppliersController < ApplicationController
   end
 
   def show
+    unless params[:orders].nil?
+      params[:orders].each do |order|
+        order = CheeseOrder.find(order)
+        order.arrived
+      end
+    end
     @pending_orders = @supplier.cheese_orders.where(received: false).order(created_at: :asc)
   end
 

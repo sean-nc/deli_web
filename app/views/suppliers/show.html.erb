@@ -6,16 +6,19 @@
 <br/>
 
 <h2>Pending Orders</h2>
-<% @pending_orders.each do |order| %>
-  Ordered On: <%= order.created_at.to_date %><br/>
-  Current Units: <%= order.current_units %><br/>
-  Cases Ordered: <%= order.cases_ordered %><br/>
-  Units Per Case: <%= order.units_per_case %><br/>
-  Case Price: <%= order.case_price.integer_to_f %><br/> 
-  <% unless order.received %>
-    Pending
-  <% end %>
-  <br/><br/>
+<%= form_tag @supplier, method: :get do %>
+  <% @pending_orders.each do |order| %>
+    Ordered On: <%= order.created_at.to_date %><br/>
+    Current Units: <%= order.current_units %><br/>
+    Cases Ordered: <%= order.cases_ordered %><br/>
+    Units Per Case: <%= order.units_per_case %><br/>
+    Case Price: <%= order.case_price.integer_to_f %><br/> 
+    <% unless order.received %>
+      <%= check_box_tag "orders[]", order.id %>
+    <% end %>
+    <br/><br/>
+  <% end %> 
+  <%= submit_tag "Recieved" %>
 <% end %>
 
 <h2>Cheeses</h2>  

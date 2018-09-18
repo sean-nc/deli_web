@@ -17,7 +17,6 @@ class CheeseOrdersController < ApplicationController
     @order = cheese.orders.build(cheese_order_params)
     @order.case_price = params[:cheese_order][:case_price].to_f.float_to_i
     if @order.save
-      cheese.save
       redirect_to @order.cheese
       flash[:notice] = 'Order was successfully created.'
     else
