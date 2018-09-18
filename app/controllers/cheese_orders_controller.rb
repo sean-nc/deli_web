@@ -16,7 +16,6 @@ class CheeseOrdersController < ApplicationController
     cheese = Cheese.friendly.find(params[:id])
     @order = cheese.orders.build(cheese_order_params)
     @order.case_price = params[:cheese_order][:case_price].to_f.float_to_i
-    cheese.in_stock = (@order.cases_ordered * @order.units_per_case) + @order.current_units
     if @order.save
       cheese.save
       redirect_to @order.cheese

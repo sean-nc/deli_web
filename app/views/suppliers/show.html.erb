@@ -5,6 +5,19 @@
 <br/>
 <br/>
 
+<h2>Pending Orders</h2>
+<% @pending_orders.each do |order| %>
+  Ordered On: <%= order.created_at.to_date %><br/>
+  Current Units: <%= order.current_units %><br/>
+  Cases Ordered: <%= order.cases_ordered %><br/>
+  Units Per Case: <%= order.units_per_case %><br/>
+  Case Price: <%= order.case_price.integer_to_f %><br/> 
+  <% unless order.received %>
+    Pending
+  <% end %>
+  <br/><br/>
+<% end %>
+
 <h2>Cheeses</h2>  
 <% @supplier.cheeses.each do|cheese| %>
   <%= cheese.name %>

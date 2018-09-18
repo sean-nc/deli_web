@@ -7,6 +7,7 @@ class SuppliersController < ApplicationController
   end
 
   def show
+    @pending_orders = @supplier.cheese_orders.where(received: false).order(created_at: :asc)
   end
 
   def new
@@ -18,7 +19,6 @@ class SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(supplier_params)
-
     if @supplier.save
       redirect_to @supplier
       flash[:notice] = 'Supplier was successfully created.'
